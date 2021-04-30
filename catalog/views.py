@@ -6,21 +6,23 @@ from .models import *
 
 def index(request):
     """View function for home page of site."""
-
-    num_game = Game.objects.all().count()
-
+    all_games=Game.objects.all();
+    num_game = all_games.count()
+    latest_game = all_games[num_game-1]
     num_developer = Developer.objects.count()
 
-    latest_game = Game.objects.last()
+    top_records = (Game.objects.all())
 
     context = {
+        'all_games': all_games,
+        'top_records': top_records,
         'num_games': num_game,
         'num_developers': num_developer,
         'latest_game': latest_game,
     }
-
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
 
 class GameListView(ListView):
     model = Game

@@ -11,18 +11,18 @@
 </head>
 <body>
 <header class="text-center">
-  <h1 class="text-center display-2">{%block header%}{%endblock%}</h1>
+    <h1 class="text-center display-2"><b>{%block header%}{%endblock%}</b></h1>
 
 </header>
   <div class="container">
-    <div class="row">
       {% block content %}{% endblock %}
-    </div>
   </div>
 <footer class="text-center">
-          <p>Webové aplikace &copy Svatopluk Kvasnička IT4</p>
+          <p>Databáze her &copy Svatopluk Kvasnička IT4</p>
       <hr>
     </div>
   </footer>
+<script src="{% static 'js/slideshow.js' %}">
+</script>
 </body>
 </html>
