@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 
+{%block header%}
+    Databáze Her
+{%endblock%}
+
 {% block content %}
-  <h1>Local Library Home</h1>
-  <p>Welcome to LocalLibrary, a website developed by <em>Mozilla Developer Network</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>The library has the following record counts:</p>
-  <ul>
-    <li><strong>Hry v databázi:</strong> {{ num_games }}</li>
-    <li><strong>Vývojáři v databázi:</strong> {{ num_developers }}</li>
-  </ul>
+
+<div>
+    <h2>Informace o databázi:</h2>
+    <div class="row">
+        <div class="col-sm-4"><p><a href="{% url 'detail' latest_game.pk%}"><img src="{{latest_game.game_img.url}}" alt="latest_game.name" width="100%" height="100%" ></a></p></div>
+        <div class="col-sm-3">
+                <p><strong>Počet her:</strong> {{ num_games }} <br>
+                    <strong>Počet vývojářů:</strong> {{ num_developers }}</p>
+        </div>
+        <div class="col-sm-5">
+            <p><strong>Poslední přidaná hra:</strong> {{ latest_game.title }}<br>
+                <strong>Vývojář:</strong> {{ latest_game.developer }}</p></p>
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock %}

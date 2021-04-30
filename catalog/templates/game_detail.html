@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block header%}
+<h1 class="text-center">Detail hry</h1>
+{%endblock%}
+
+{% block content %}
+<div>
+    <div class="row">
+        <div class="col-sm-7">
+            <h2>{{ game_detail}}</h2>
+            <p>Žánr: {% for genre in game_detail.genre.all %}
+                {%if genre != game_detail.genre.last %}
+                {{genre}},
+                {%endif%}
+                {%if genre == game_detail.genre.last %}
+                {{genre}}
+                {%endif%}
+                {% endfor %}
+            </p>
+            <p>{{game_detail.summary}}</p>
+            <p>{{game_detail.developer.name}}</p>
+        </div>
+        <div class="col-sm-4">
+            <p><img src="{{game_detail.game_img.url}}" alt="game_detail.name"></p>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
