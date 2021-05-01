@@ -12,8 +12,12 @@
 <body>
 <header class="text-center">
     <h1 class="text-center display-2"><b>{%block header%}{%endblock%}</b></h1>
-
 </header>
+<div style="background-color:#2a475e;margin-top:-1px" class="text-center">
+        <a href="{% url 'index'%}" class="btn" style="color: #c7d5e0; background-color: #2a475e;;border-color: #2a475e; margin-right:15px;margin-top:5px;margin-bottom:5px;"><b>Hlavní stránka</b></a>
+        <a href="{% url 'list'%}" class="btn" style="color: #c7d5e0; background-color: #2a475e;;border-color: #2a475e;margin-right:15px;margin-top:5px;margin-bottom:5px;"><b>List her</b></a>
+        <a href="{% url 'developers'%}" class="btn" style="color: #c7d5e0; background-color: #2a475e;;border-color: #2a475e; margin-right:15px;margin-top:15px;margin-top:5px;margin-bottom:5px;"><b>List vývojářů</b></a>
+    </div>
   <div class="container">
       {% block content %}{% endblock %}
   </div>

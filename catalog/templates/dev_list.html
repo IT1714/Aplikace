@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%block header%}
+Vývojáři
+{%endblock%}
+
+{% block content %}
+    {% for dev in all_dev %}
+    <div style="background-color:#171a21;">
+        <h2><a>{{dev.name}}</a></h2>
+        <div class="row"style="background-color:#2a475e;">
+            <div class="col-sm-8">
+                <p><b>Hry: </b> {% for game in all_games %}
+                        {%if game.developer == dev %}
+                        {%endif%}
+                    {%endfor%}
+                    </p>
+                <div class="row">
+                    <p style="padding-right: 15px;"><b>Datum založení: </b>{{dev.founded}}.</p>
+                    <p><b>Sídlo společnosti: </b>{{dev.headquarters}}</p>
+                </div>
+                <p style="margin-top:-15px;"><b>Zaměstnanci:  </b>{{dev.employees}}</p>
+            </div>
+            <div class="col-sm-4"><p><img src="{{dev.img.url}}" alt="{{dev.name}}" width="100%" height="100%" ></p></div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+{% endblock %}

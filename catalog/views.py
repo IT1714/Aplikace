@@ -10,7 +10,6 @@ def index(request):
     num_game = all_games.count()
     latest_game = all_games[num_game-1]
     num_developer = Developer.objects.count()
-
     top_records = (Game.objects.all())
 
     context = {
@@ -24,6 +23,18 @@ def index(request):
     return render(request, 'index.html', context=context)
 
 
+def dev(request):
+    """View function for home page of site."""
+    all_dev=Developer.objects.all();
+    all_games=Game.objects.all();
+
+    context = {
+        'all_dev': all_dev,
+        'all_games': all_games,
+    }
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'dev_list.html', context=context)
+
 class GameListView(ListView):
     model = Game
     context_object_name = 'game_list'
@@ -33,3 +44,4 @@ class GameDetailView(DetailView):
     model = Game
     context_object_name = 'game_detail'
     template_name = 'game_detail.html'
+

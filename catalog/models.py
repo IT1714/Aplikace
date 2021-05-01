@@ -20,6 +20,9 @@ class Game(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
                           help_text='Unique ID for this particular game across whole library')
     game_img = models.ImageField(upload_to='img/%Y/%m' ,blank=True,null=True)
+    slideshow_img_1 = models.ImageField(upload_to='img/%Y/%m', blank=True, null=True)
+    slideshow_img_2 = models.ImageField(upload_to='img/%Y/%m', blank=True, null=True)
+    slideshow_img_3 = models.ImageField(upload_to='img/%Y/%m', blank=True, null=True)
 
     # Foreign Key used because book can only have one author, but authors can have multiple books
     # Author as a string rather than object because it hasn't been declared yet in the file
@@ -48,8 +51,10 @@ class Developer(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,
                           help_text='Unique ID for this particular game across whole library')
     name = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='img/%Y/%m', blank=True, null=True)
     headquarters = models.CharField(max_length=100)
     founded = models.DateField(null=True, blank=True)
+    employees=  models.IntegerField(validators=[MinValueValidator(0)])
 
 
     def get_absolute_url(self):

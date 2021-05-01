@@ -8,8 +8,8 @@ Hry v databázi
     {% for game in game_list %}
     <div style="background-color:#171a21;">
         <h2><a href="{% url 'detail' game.pk%}">{{ game.title}}</a></h2>
-        <div class="row">
-            <div class="col-sm-4"><p><a href="{% url 'detail' game.pk%}"><img src="{{game.game_img.url}}" alt="game.name" width="100%" height="100%" ></a></p></div>
+        <div class="row"style="background-color:#2a475e;">
+            <div class="col-sm-4"><p><a href="{% url 'detail' game.pk%}"><img src="{{game.game_img.url}}" alt="{{game.title}}" width="100%" height="100%" ></a></p></div>
             <div class="col-sm-8">
                 <p><b>Žánr:</b> {% for genre in game.genre.all %}
                         {%if genre != game.genre.last %}
@@ -23,9 +23,9 @@ Hry v databázi
                     <p>{{game.summary}}</p>
                 <div class="row">
                     <p><b>{{game.developer.name}}</b></p>
-                    <div class="row" style="padding-top: 10px;">
+                    <div class="row" style="padding-top: 10px;padding-bottom: 10px;">
                         <p style="position: absolute; left: 0;padding-left: 15px; font-size: 20px;"><b>{{game.score}}/10</b></p>
-                        <a href="{% url 'detail' game.pk%}" class="btn btn-primary" style="position: absolute; right: 0; color: #c7d5e0;"><b>{{ game.title}} detail</b></a>
+                        <a href="{% url 'detail' game.pk%}" class="btn" style="position: absolute; right: 0; color: #c7d5e0; background-color: #171a21;;border-color: #171a21;"><b>{{ game.title}} detail</b></a>
                     </div>
                 </div>
             </div>
