@@ -12,6 +12,7 @@ Vývojáři
             <div class="col-sm-8">
                 <p><b>Hry: </b> {% for game in all_games %}
                         {%if game.developer == dev %}
+                            <a href="{% url 'detail' game.pk%}">{{game}},</a>
                         {%endif%}
                     {%endfor%}
                     </p>
